@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @tweet.content %>
-</p>
-
-<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
-<%= link_to 'Back', tweets_path %>
+<div class="card text-center">
+  <div class="card-header">
+    <%= "##{@tweet.id}" %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @tweet.title %></h5>
+    <p class="card-text"><%= @tweet.content %></p>
+    <%= link_to '<<Volver', tweets_path, class: 'btn btn-warning' %>
+    <%= link_to 'Editar', edit_tweet_path(@tweet), class: 'btn btn-info' %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= "Last updated #{time_ago_in_words(@tweet.updated_at)} ago" %>
+  </div>
+</div>

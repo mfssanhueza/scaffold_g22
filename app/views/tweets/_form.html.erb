@@ -10,16 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :content %>
+        <%= form.text_area :content, class:"form-control", id:"exampleFormControlTextarea1", rows:"3"%>
+      </div>
+    </div>
   </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Enviar' %>
   </div>
 <% end %>

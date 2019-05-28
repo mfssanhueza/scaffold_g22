@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tweets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.title %></td>
-        <td><%= tweet.content %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @tweets.each_with_index do |tweet, i| %>
+  <div class="card">
+    <div class="card-header">
+      <%="Tweet##{i}"%>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= tweet.title %></h5>
+      <p class="card-text"><%= tweet.content %></p>
+      <%= link_to 'Mostrar', tweet, class:"btn btn-success" %>
+      <%= link_to 'Editar', edit_tweet_path(tweet), class:"btn btn-info" %>
+      <%= link_to 'Borrar', tweet, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <br>
+<% end %>
 <br>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<%= link_to 'Nuevo Tweet', new_tweet_path, class: 'btn btn-primary' %>
